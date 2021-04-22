@@ -23,4 +23,4 @@ if (isset($_POST['userid']) && isset($_POST['pass'])) {
     }
 }
 echo json_encode($data);
-?>
+?>  

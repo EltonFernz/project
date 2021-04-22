@@ -69,44 +69,8 @@ $(document).ready(function () {
           } else if (jsonData.status === "emailError") {
             $(".emailError").html(jsonData.message);
           } else if (jsonData.status === "success") {
-            var geturl = document.referrer;
-            if (geturl.includes("checkout")) {
-              if (window.localStorage) {
-                cart = JSON.parse(localStorage.cart);
-                for (var i = 0; i < cart.length; i++) {
-                  var pid = cart[i].Product;
-                  var pdetail = cart[i].Details;
-                  var prodPrice = cart[i].Price;
-                  var tp = cart[i].Taxprice;
-                  var tr = cart[i].Taxrate;
-                  var prodName = cart[i].pnme;
-                  var qtyVal = cart[i].Qty;
-                  var mcatid = cart[i].mcatid;
-                  $.ajax({
-                    type: "POST",
-                    url: "user/source/addtocart.php",
-                    data: {
-                      prid: pid,
-                      mcatid: mcatid,
-                      pdetail: pdetail,
-                      qty: qtyVal,
-                      price: prodPrice,
-                      pname: prodName,
-                      tax: tr,
-                      taxprice: tp,
-                    },
-                  });
-                }
-              }
-              localStorage.clear();
-              window.location = geturl;
-            } else if (geturl.includes("product-detail")) {
-              window.location = geturl;
-            } else {
-              localStorage.clear();
-              window.location = "index";
-            }
-          }
+            window.location = "index";
+           }
         },
       });
     }
@@ -188,12 +152,13 @@ $(document).ready(function () {
 //   }
   
   function valEmail() {
-    var pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    var email = $(".reset_email").val();
-    if (email.match(pattern)) {
-      return true;
-    } else {
+    var noletter = /[^A-Z]/ig;
+    var nospecialchar = /[!@#$%^&*(),.?":{}|<>]/;
+    var userid = $("#userid").val();
+    if (userid.match(noletter)||userid.match(nospecialchar)) {
       return false;
+    } else {
+      return true;
     }
   }
   
