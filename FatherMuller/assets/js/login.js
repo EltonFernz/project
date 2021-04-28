@@ -1,75 +1,75 @@
 $(document).ready(function () {
-    $("#login").click(function (e) {
-      alert("hello");
-      e.preventDefault();
-      validateuserLogin();
-    });
-  
-    // $(".reset_email").change(function () {
-    //   if (!valEmail()) {
-    //     $(".email-reset").text("Invalid Email");
-    //   } else {
-    //     $(".email-reset").text("");
-    //   }
-    // });
-  
-    // $(".in_reset").click(function () {
-    //   passReset();
-    // });
-  
-    // $(".n_pass").change(function () {
-    //   if (!valPass()) {
-    //     $(".pwmsg").text("This field must have atleast 8 characters");
-    //   } else {
-    //     $(".pwmsg").text("");
-    //   }
-    // });
-  
-    // $(".c_pass").change(function () {
-    //   if (!valCPass()) {
-    //     $(".cpwmsg").text("Confirm Password does not match Password");
-    //   } else {
-    //     $(".cpwmsg").text("");
-    //   }
-    // });
-  
-    // $(".reset_pass").click(function (e) {
-    //   e.preventDefault();
-    //   reset_pass();
-    // });
-  
+  $("#login").click(function (e) {
+    alert("hello");
+    e.preventDefault();
+    validateuserLogin();
   });
-  
-  function validateuserLogin() {
-    var userid = $("#userid").val();
-    var pass = $("#password").val();
-    if (userid === "" || pass === "") {
-      swal("Warning!", "Please fill all the fields!", "warning");
-    } else {
-      $.ajax({
-        type: "POST",
-        url: "../../assets/php/login.php",
-        data: {
-          userid: userid,
-          pass: pass,
-        },
-        success: function (response) {
-          var jsonData = JSON.parse(response);
-          if (jsonData.status === "passwordError") {
-            alert("hh");
-            $(".passwordError").html(jsonData.message);
-          } else if (jsonData.status === "emailError") {
-            alert("hhj");
-            
-            $(".emailError").html(jsonData.message);
-          } else if (jsonData.status === "success") {
-            window.location = "../../index1.html";
-           }
-        },
-      });
-    }
+
+  // $(".reset_email").change(function () {
+  //   if (!valEmail()) {
+  //     $(".email-reset").text("Invalid Email");
+  //   } else {
+  //     $(".email-reset").text("");
+  //   }
+  // });
+
+  // $(".in_reset").click(function () {
+  //   passReset();
+  // });
+
+  // $(".n_pass").change(function () {
+  //   if (!valPass()) {
+  //     $(".pwmsg").text("This field must have atleast 8 characters");
+  //   } else {
+  //     $(".pwmsg").text("");
+  //   }
+  // });
+
+  // $(".c_pass").change(function () {
+  //   if (!valCPass()) {
+  //     $(".cpwmsg").text("Confirm Password does not match Password");
+  //   } else {
+  //     $(".cpwmsg").text("");
+  //   }
+  // });
+
+  // $(".reset_pass").click(function (e) {
+  //   e.preventDefault();
+  //   reset_pass();
+  // });
+
+});
+
+function validateuserLogin() {
+  var userid = $("#userid").val();
+  var pass = $("#password").val();
+  if (userid === "" || pass === "") {
+    swal("Warning!", "Please fill all the fields!", "warning");
+  } else {
+    $.ajax({
+      type: "POST",
+      url: "../../assets/php/login.php",
+      data: {
+        userid: userid,
+        pass: pass,
+      },
+      success: function (response) {
+        var jsonData = JSON.parse(response);
+        if (jsonData.status === "passwordError") {
+          alert("hh");
+          $(".passwordError").html(jsonData.message);
+        } else if (jsonData.status === "emailError") {
+          alert("hhj");
+          
+          $(".emailError").html(jsonData.message);
+        } else if (jsonData.status === "success") {
+          window.location = "../../index1.html";
+         }
+      },
+    });
   }
-  
+}
+
 //   function passReset() {
 //     var resetemail = $(".reset_email").val();
 //     if (resetemail === "") {
@@ -101,7 +101,7 @@ $(document).ready(function () {
 //       });
 //     }
 //   }
-  
+
 //   function reset_pass() {
 //     var password = $(".n_pass").val();
 //     var cpassword = $(".c_pass").val();
@@ -144,33 +144,33 @@ $(document).ready(function () {
 //       });
 //     }
 //   }
-  
-  function valEmail() {
-    var noletter = /[^A-Z]/ig;
-    var nospecialchar = /[!@#$%^&*(),.?":{}|<>]/;
-    var userid = $("#userid").val();
-    if (userid.match(noletter)||userid.match(nospecialchar)) {
-      return false;
-    } else {
-      return true;
-    }
+
+function valEmail() {
+  var noletter = /[^A-Z]/ig;
+  var nospecialchar = /[!@#$%^&*(),.?":{}|<>]/;
+  var userid = $("#userid").val();
+  if (userid.match(noletter)||userid.match(nospecialchar)) {
+    return false;
+  } else {
+    return true;
   }
-  
-  function valPass() {
-    var pass = $(".n_pass").val();
-    if (pass.length < 8) {
-      return false;
-    } else {
-      return true;
-    }
+}
+
+function valPass() {
+  var pass = $(".n_pass").val();
+  if (pass.length < 8) {
+    return false;
+  } else {
+    return true;
   }
-  
-  function valCPass() {
-    var cpass = $(".c_pass").val();
-    var pass = $(".n_pass").val();
-    if (pass == cpass) {
-      return true;
-    } else {
-      return false;
-    }
+}
+
+function valCPass() {
+  var cpass = $(".c_pass").val();
+  var pass = $(".n_pass").val();
+  if (pass == cpass) {
+    return true;
+  } else {
+    return false;
   }
+}
