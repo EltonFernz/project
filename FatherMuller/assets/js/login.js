@@ -1,6 +1,5 @@
 $(document).ready(function () {
   $("#login").click(function (e) {
-    alert("hello");
     e.preventDefault();
     validateuserLogin();
   });
@@ -56,11 +55,12 @@ function validateuserLogin() {
       success: function (response) {
         var jsonData = JSON.parse(response);
         if (jsonData.status === "passwordError") {
-          alert("hh");
+          alert(jsonData.status);
+          swal("Warning","Password Error","warning");
           $(".passwordError").html(jsonData.message);
         } else if (jsonData.status === "emailError") {
-          alert("hhj");
-          
+          alert(jsonData.status);
+          swal("Warning!", "Username is Incorrect", "warning");
           $(".emailError").html(jsonData.message);
         } else if (jsonData.status === "success") {
           window.location = "../../index1.html";
