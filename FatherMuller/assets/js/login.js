@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $(".login").click(function (e) {
+    $("#login").click(function (e) {
+      alert("hello");
       e.preventDefault();
       validateuserLogin();
     });
@@ -37,16 +38,6 @@ $(document).ready(function () {
     //   reset_pass();
     // });
   
-    $.ajax({
-      type: "POST",
-      url: "user/source/getsession.php",
-      success: function (response) {
-        var res = JSON.parse(response);
-        if (res.status == "OK") {
-          window.location.href = "index";
-        }
-      },
-    });
   });
   
   function validateuserLogin() {
@@ -57,7 +48,7 @@ $(document).ready(function () {
     } else {
       $.ajax({
         type: "POST",
-        url: "php/login.php",
+        url: "../../assets/php/login.php",
         data: {
           userid: userid,
           pass: pass,
@@ -65,11 +56,14 @@ $(document).ready(function () {
         success: function (response) {
           var jsonData = JSON.parse(response);
           if (jsonData.status === "passwordError") {
+            alert("hh");
             $(".passwordError").html(jsonData.message);
           } else if (jsonData.status === "emailError") {
+            alert("hhj");
+            
             $(".emailError").html(jsonData.message);
           } else if (jsonData.status === "success") {
-            window.location = "index";
+            window.location = "../../index1.html";
            }
         },
       });

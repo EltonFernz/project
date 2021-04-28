@@ -10,9 +10,9 @@ if (isset($_POST['userid']) && isset($_POST['pass'])) {
     $row =  mysqli_fetch_assoc($Query);
     if ($row == true) {
         $dbPassword = $row['password'];
-        $dbuserid = $row['userid'];
+        $dbuserid = $row['username'];
         if ($password == $dbPassword) {
-            $_SESSION['userid'] = $userid;
+            $_SESSION['username'] = $userid;
             $_SESSION['password'] = $password;
             $data = (array('status' => 'success', 'message' => 'Logged in!' ));
         } else {
