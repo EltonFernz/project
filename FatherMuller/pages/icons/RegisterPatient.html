@@ -278,28 +278,30 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <form>
-            <label>
-              Patient ID :
-            </label>
-            <input class="form-control" type="text" name="firstname" /> <br>
+            <h3>Title</h3>
             <div class="col-md-6">
               <div class="form-group">
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value=""> Single Patient</label>
+                    <input type="radio" class="form-check-input" name="Patient" id="optionsRadios1" value="Single Patient">Single Patient</label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" > Family</label>
+                    <input type="radio" class="form-check-input" name="Patient" id="optionsRadios2" value="Family" >Family</label>
                 </div>
                 
                 
               </div>
             </div>
             <center>
-            <input class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
+            <input id="okay"class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
           </center>
             <br>
+            <div id="single">
+            <label>
+              Patient ID :
+            </label>
+            <input id=""class="form-control" type="text" name="firstname" /> <br>
             <label>
               Firstname:
             </label>
@@ -332,11 +334,17 @@
             <label for="birthday">Birthday:</label>
             <input class="form-control" type="date" id="birthday" name="birthday">
             <br> 
-            Address :
-            <textarea class="form-control" value="address" required>
-</textarea>
-            <br>
+          
+            <div id="family">
+              <div id="textboxDiv"></div> 
+            <button id="Add" class="btn btn-gradient-primary mr-2">Click to add textbox</button> <button id="Remove" class="btn btn-gradient-primary mr-2">Click to remove textbox</button>
             
+          </div>
+            <br>
+            <div id="common">
+            Address :
+            <textarea class="form-control" value="address" required></textarea>
+            <br>
             <label>
               City :
             </label>
@@ -348,13 +356,14 @@
            <input class="form-control" type="text" name="phone" placeholder="phone no." size="10"  required>
             <br> <br>
             Symptoms :
-            <textarea class="form-control" value="symptoms" required>
-</textarea>
+            <textarea class="form-control" value="symptoms" required></textarea>
             <br>
             <center>
             <input class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
           </center>
+          </div>
           </form>
+        </div>
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
@@ -383,12 +392,15 @@
   <script src="../../assets/js/off-canvas.js"></script>
   <script src="../../assets/js/hoverable-collapse.js"></script>
   <script src="../../assets/js/misc.js"></script>
+  <script src="../../assets/js/regpatient.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="../../assets/js/file-upload.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+  
   <script>
     $(document).ready(function () {
 
