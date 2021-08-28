@@ -298,25 +298,43 @@
           </center>
             <br>
             <div id="single">
-            <label>
+            <div id="sngl"><label>
               Patient ID :
             </label>
-            <input id=""class="form-control" type="text" name="firstname" /> <br>
+            <input id="pid"class="form-control" type="text" name="pid" />
+          </div>
+           <br>
+           <div id="fmly">
+            <label>
+              Family ID :
+            </label>
+            <input id="Fid"class="form-control" type="text" name="Fid" /> 
+          </div>
+            <br>
             <label>
               Firstname:
             </label>
-            <input class="form-control" type="text" name="firstname" /><br>
+            <input id="fname"class="form-control firstN" type="text" name="firstname" /><br>
             <label>
               Lastname:
             </label>
-            <input class="form-control" type="text" name="lastname" /><br>
+            <input id="lname" class="form-control lastN" type="text" name="lastname" /><br>
             <br>
             <label>
               Gender :
             </label><br>
-            <div class="col-md-6">
+            
               <div class="form-group">
-                <div class="form-check">
+                <div class="">
+                <form>
+                  <select class="form-control gendr" id="Gender" name="gender[]">
+                    <option value=""id="optionsRadios1">Male</option>
+                    <option value=""id="optionsRadios2">Female</option>
+                    <option value=""id="optionsRadios3">Other</option>
+                  </select>
+                </form>
+              </div>
+                <!-- <div class="form-check">
                   <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value=""> Male </label>
                 </div>
@@ -327,15 +345,21 @@
                 <div class="form-check">
                   <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios3" value="option3" > Other</label>
-                </div>
-              </div>
+                </div> -->
+              
             </div>
             <br>
             <label for="birthday">Birthday:</label>
-            <input class="form-control" type="date" id="birthday" name="birthday">
+            <input class="form-control brthdy" type="date" id="birthday" name="birthday">
             <br> 
-          
-            <div id="family">
+            <div id="Ssympt">
+              <label>Symptoms :</label>
+               <textarea id="sympt" class="form-control Sympt" value="symptoms" required></textarea>
+              </div>
+              </div>
+
+              <br>
+            <div id="family"> 
               <div id="textboxDiv"></div> 
             <button id="Add" class="btn btn-gradient-primary mr-2">Click to add textbox</button> <button id="Remove" class="btn btn-gradient-primary mr-2">Click to remove textbox</button>
             
@@ -343,23 +367,24 @@
             <br>
             <div id="common">
             Address :
-            <textarea class="form-control" value="address" required></textarea>
+            <textarea id="adrs" class="form-control" value="address" required></textarea>
             <br>
             <label>
               City :
             </label>
-            <input class="form-control" type="text" name="city">
+            <input id="cty" class="form-control" type="text" name="city">
             <br>
             <label>
               Phone :
             </label>
-           <input class="form-control" type="text" name="phone" placeholder="phone no." size="10"  required>
+           <input id="phne"class="form-control" type="text" name="phone" placeholder="phone no." size="10"  required>
             <br> <br>
-            Symptoms :
-            <textarea class="form-control" value="symptoms" required></textarea>
-            <br>
             <center>
-            <input class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
+            <input id="submit"class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
+          </center>
+          <br>
+          <center>
+            <input id="submit2"class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
           </center>
           </div>
           </form>
@@ -367,7 +392,7 @@
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
-        <footer class="footer">
+        <!-- <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com
               2020</span>
@@ -375,7 +400,7 @@
                 href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates
               </a> from Bootstrapdash.com</span>
           </div>
-        </footer>
+        </footer> -->
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
