@@ -314,11 +314,11 @@
             <label>
               Firstname:
             </label>
-            <input id="fname"class="form-control firstN" type="text" name="firstname" /><br>
+            <input id="fname"class="form-control firstN" type="text" name="firstname" autofocus required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"/><br>
             <label>
               Lastname:
             </label>
-            <input id="lname" class="form-control lastN" type="text" name="lastname" /><br>
+            <input id="lname" class="form-control lastN" type="text" name="lastname"required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" /><br>
             <br>
             <label>
               Gender :
@@ -327,7 +327,7 @@
               <div class="form-group">
                 <div class="">
                 <form>
-                  <select class="form-control gendr" id="Gender" name="gender[]">
+                  <select class="form-control gendr" id="Gender" name="gender[]"required>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Other">Other</option>
@@ -350,11 +350,11 @@
             </div>
             <br>
             <label for="birthday">Birthday:</label>
-            <input class="form-control brthdy" type="date" id="birthday" name="birthday">
+            <input class="form-control brthdy" type="date" id="birthday" name="birthday"required>
             <br> 
             <div id="Ssympt">
               <label>Symptoms :</label>
-               <textarea id="sympt" class="form-control Sympt" value="symptoms" required></textarea>
+               <textarea id="sympt" class="form-control Sympt" value="symptoms" required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"></textarea>
               </div>
               </div>
 
@@ -372,12 +372,12 @@
             <label>
               City :
             </label>
-            <input id="cty" class="form-control" type="text" name="city">
+            <input id="cty" class="form-control" type="text" name="city"required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)">
             <br>
             <label>
               Phone :
             </label>
-           <input id="phne"class="form-control" type="text" name="phone" placeholder="phone no." size="10"  required>
+           <input id="phne"class="form-control" type="text" name="phone" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" placeholder="" size="10" maxlength="10" required>
             <br> <br>
             <center>
             <input id="submit"class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
