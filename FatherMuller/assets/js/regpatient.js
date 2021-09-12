@@ -35,7 +35,7 @@ function SinglePatient() {
     } else {
         $.ajax({
             type: "POST",
-            url: "../../assets/php/regpatient.php",
+            url: "../../assets/php/registerpatient.php",
             data: {
                 pid: pid,
                 fname: fname,
