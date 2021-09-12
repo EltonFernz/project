@@ -29,7 +29,8 @@ function SinglePatient() {
     var cty = $("#cty").val();
     var phne = $("#phne").val();
     var sympt = $("#sympt").val();
-    if (pid == "" || fname == "" || lname == "" || gender == "" || birthday == "" || adrs == "" || cty == "" || phne == "" || sympt == "") {
+    var appDT = $("#meeting-time").val();
+    if (pid == "" || fname == "" || lname == "" || gender == "" || birthday == "" || adrs == "" || cty == "" || phne == "" || sympt == "" || appDT == "") {
         swal("Warning!", "Please fill all the fields!", "warning");
     } else {
         $.ajax({
@@ -45,6 +46,7 @@ function SinglePatient() {
                 cty: cty,
                 phne: phne,
                 sympt: sympt,
+                appDT: appDT,
 
             },
             success: function (response) {

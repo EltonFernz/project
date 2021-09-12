@@ -20,6 +20,7 @@
   <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+  <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -378,7 +379,12 @@
               Phone :
             </label>
            <input id="phne"class="form-control" type="text" name="phone" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" placeholder="" size="10" maxlength="10" required>
-            <br> <br>
+            <br>
+            <label>Appointment Date & Time</label>
+            <input type="datetime-local" class="form-control" id="meeting-time"
+              name="meeting-time" value=""
+               max="">
+            <br> 
             <center>
             <input id="submit"class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
           </center>
@@ -418,6 +424,7 @@
   <script src="../../assets/js/hoverable-collapse.js"></script>
   <script src="../../assets/js/misc.js"></script>
   <script src="../../assets/js/regpatient.js"></script>
+  <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="../../assets/js/file-upload.js"></script>
