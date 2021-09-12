@@ -60,6 +60,7 @@ function SinglePatient() {
                     swal("Warning!", "Username is Incorrect", "warning");
                     $(".emailError").html(jsonData.message);
                 } else if (jsonData.status === "success") {
+                    swal("Success", "Added Successfully", "Success");
                     window.location = "../../index1.html";
                 }
             },
