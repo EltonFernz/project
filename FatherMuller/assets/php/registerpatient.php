@@ -10,8 +10,9 @@ $adrs=$_POST['adrs'];
 $city=$_POST['cty'];
 $phone=$_POST['phne'];
 $symptoms=$_POST['sympt'];
+$appointment=$_POST['appDT'];
 
-$sql1="INSERT INTO `patient_details`(`c_id`, `fname`, `lname`, `gender`, `dob`, `address`, `city`, `phoneno`, `description`) VALUES ('$pid','$fname','$lname','$gender','$dob','$adrs','$city','$phone','$symptoms')";
+$sql1="INSERT INTO `patient_details`(`c_id`, `fname`, `lname`, `gender`, `dob`, `address`, `city`, `phoneno`, `description`,`appointment`) VALUES ('$pid','$fname','$lname','$gender','$dob','$adrs','$city','$phone','$symptoms','$appointment')";
 $result1 = mysqli_query($connection, $sql1);
 if ($result1) {
   $res = array('status' => 'success', 'message' => 'Patient added Successfully!');

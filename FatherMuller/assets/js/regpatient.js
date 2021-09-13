@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    load();
     var res = "";
     $("#single").hide();
     $("#family").hide();
@@ -67,6 +68,26 @@ function SinglePatient() {
         });
     }
 }
+
+function load() {
+    $.ajax({
+      type: "POST",
+      url: "../../assets/php/patientid.php",
+      success: function (result) {
+        var jsonData = JSON.parse(result);
+        if (jsonData.status === "success") {
+          $(".bread-crumbs").html("RegisterPatient");
+          $(".pid").val(jsonData.data.pid);
+       }else {
+          swal("Error!", "" +jsonData.message, "error");
+        }
+      
+      },
+      error:function(response){
+        alert(response);
+      }
+    });
+  }
 
 function Family() {
     var arr = [];
