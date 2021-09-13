@@ -11,6 +11,7 @@ $(document).ready(function () {
         $("#textboxDiv").children().last().remove();
     });
     $("#okay").click(function () {
+        
         displayRadioValue();
     });
     $("#submit").click(function () {
@@ -76,8 +77,11 @@ function load() {
       success: function (result) {
         var jsonData = JSON.parse(result);
         if (jsonData.status === "success") {
-          $(".bread-crumbs").html("RegisterPatient");
-          $(".pid").val(jsonData.data.pid);
+          if(res == "Single Patient")
+          {
+            $(".pid").val("P"+jsonData.data.pid);
+          }
+          
        }else {
           swal("Error!", "" +jsonData.message, "error");
         }
@@ -118,7 +122,6 @@ function Family() {
 //     }
 // }
 function displayRadioValue() {
-
     var ele = document.getElementsByName('Patient');
 
 
