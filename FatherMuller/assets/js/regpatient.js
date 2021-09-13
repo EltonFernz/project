@@ -85,7 +85,6 @@ function load() {
        }else {
           swal("Error!", "" +jsonData.message, "error");
         }
-      
       },
       error:function(response){
         alert(response);
