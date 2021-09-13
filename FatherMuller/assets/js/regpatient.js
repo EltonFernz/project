@@ -80,6 +80,8 @@ function load() {
           if(res == "Single Patient")
           {
             $(".pid").val("P"+jsonData.data.pid);
+          }else{
+            $(".fid").val("F"+jsonData.data.pid);
           }
           
        }else {
@@ -110,6 +112,43 @@ function Family() {
     $("textarea.Sympt").each(function () {
         arr.push($(this).val());
     });
+    var adrs = $("#adrs").val();
+    var cty = $("#cty").val();
+    var phne = $("#phne").val();
+    var appDT = $("#meeting-time").val();
+    if ( arr == "" || adrs == "" || cty == "" || phne == "" || appDT == "") {
+        swal("Warning!", "Please fill all the fields!", "warning");
+    } else {
+        $.ajax({
+            type: "POST",
+            url: "../../assets/php/registerpatient.php",
+            data: {
+                fid: fid,
+                arr : arr,
+                adrs: adrs,
+                cty: cty,
+                phne: phne,
+                appDT: appDT,
+
+            },
+            success: function (response) {
+                var jsonData = JSON.parse(response);
+                if (jsonData.status === "passwordError") {
+                    alert(jsonData.status);
+                    swal("Warning", "Password Error", "warning");
+                    $(".passwordError").html(jsonData.message);
+                } else if (jsonData.status === "emailError") {
+                    alert(jsonData.status);
+                    swal("Warning!", "Username is Incorrect", "warning");
+                    $(".emailError").html(jsonData.message);
+                } else if (jsonData.status === "success") {
+                    swal("Success", "Added Successfully", "Success");
+                    window.location = "../../index1.html";
+                }
+            },
+        });
+    }
+
 }
 // function displayRadioValue() {
 //     var ele = document.getElementsByName('gender');
