@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    load();
-    var res = "";
+    
+    var res;
     $("#single").hide();
     $("#family").hide();
     $("#common").hide();
@@ -11,8 +11,8 @@ $(document).ready(function () {
         $("#textboxDiv").children().last().remove();
     });
     $("#okay").click(function () {
-        
         displayRadioValue();
+        load();
     });
     $("#submit").click(function () {
         SinglePatient();
@@ -85,6 +85,7 @@ function load() {
        }else {
           swal("Error!", "" +jsonData.message, "error");
         }
+      
       },
       error:function(response){
         alert(response);
