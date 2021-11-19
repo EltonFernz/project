@@ -32,6 +32,7 @@ function SinglePatient() {
     var phne = $("#phne").val();
     var sympt = $("#sympt").val();
     var appDT = $("#meeting-time").val();
+    var check = 1;
     if (pid == "" || fname == "" || lname == "" || gender == "" || birthday == "" || adrs == "" || cty == "" || phne == "" || sympt == "" || appDT == "") {
         swal("Warning!", "Please fill all the fields!", "warning");
     } else {
@@ -39,6 +40,7 @@ function SinglePatient() {
             type: "POST",
             url: "../../assets/php/registerpatient.php",
             data: {
+                check : check,
                 pid: pid,
                 fname: fname,
                 lname: lname,
@@ -79,9 +81,9 @@ function load() {
         if (jsonData.status === "success") {
           if(res == "Single Patient")
           {
-            $(".pid").val("P"+jsonData.data.pid);
+            $(".pid").val(jsonData.data.pid);
           }else{
-            $(".fid").val("F"+jsonData.data.pid);
+            $(".fid").val(jsonData.data.pid);
           }
           
        }else {
@@ -97,26 +99,30 @@ function load() {
 
 function Family() {
     var arr = [];
+    var arr1 = [];
+    var arr2 = [];
+    var arr3 = [];
+    var arr4 = [];
     $("input.firstN").each(function () {
         arr.push($(this).val());
     });
     $("input.lastN").each(function () {
-        arr.push($(this).val());
+        arr1.push($(this).val());
     });
     $(".gendr option:selected").each(function () {
-        arr.push($(this).val());
+        arr2.push($(this).val());
     });
     $("input.brthdy").each(function () {
-        arr.push($(this).val());
+        arr3.push($(this).val());
     });
     $("textarea.Sympt").each(function () {
-        arr.push($(this).val());
+        arr4.push($(this).val());
     });
     var adrs = $("#adrs").val();
     var cty = $("#cty").val();
     var phne = $("#phne").val();
     var appDT = $("#meeting-time").val();
-    if ( arr == "" || adrs == "" || cty == "" || phne == "" || appDT == "") {
+    if ( arr == "" || arr1 == "" || arr2 == "" ||arr3 == "" || arr4 == "" || adrs == "" || cty == "" || phne == "" || appDT == "") {
         swal("Warning!", "Please fill all the fields!", "warning");
     } else {
         $.ajax({
@@ -125,6 +131,10 @@ function Family() {
             data: {
                 fid: fid,
                 arr : arr,
+                arr1 : arr1,
+                arr2 : arr2,
+                arr3 : arr3,
+                arr4 : arr4,
                 adrs: adrs,
                 cty: cty,
                 phne: phne,
