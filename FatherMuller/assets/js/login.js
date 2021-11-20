@@ -54,6 +54,8 @@ function validateuserLogin() {
       },
       success: function (response) {
         var jsonData = JSON.parse(response);
+        //if statement for 2 logins
+
         if (jsonData.status === "passwordError") {
           alert(jsonData.status);
           swal("Warning","Password Error","warning");
