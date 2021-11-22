@@ -83,7 +83,7 @@ function load() {
           {
             $(".pid").val(jsonData.data.pid);
           }else{
-            $(".fid").val(jsonData.data.pid);
+            $(".fid").val(jsonData.data.fid);
           }
           
        }else {

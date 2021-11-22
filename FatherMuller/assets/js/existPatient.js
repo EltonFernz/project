@@ -18,13 +18,13 @@ function CheckPatient(){
             },
             success: function (response) {
                 var jsonData = JSON.parse(response);
-                $(".firstName").val(jsonData.name[0]+jsonData.lname[0]);
-                $(".gender").val(jsonData.gender[0]);
-                $(".birthday").val(jsonData.dob[0]);
-                $(".address").val(jsonData.address[0]);
-                $(".city").val(jsonData.city[0]);
-                $(".phone").val(jsonData.phone[0]);
-                $(".symptoms").val(jsonData.symptoms[0]);
+                $(".firstName").val(jsonData.data.fname+jsonData.data.lname);
+                $(".gender").val(jsonData.data.gender);
+                $(".birthday").val(jsonData.data.dob);
+                $(".address").val(jsonData.data.address);
+                $(".city").val(jsonData.data.city);
+                $(".phone").val(jsonData.data.phoneno);
+                $(".symptoms").val(jsonData.data.symptoms);
                 if (jsonData.status === "passwordError") {
                     alert(jsonData.status);
                     swal("Warning", "Password Error", "warning");
