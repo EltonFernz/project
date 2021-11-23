@@ -24,7 +24,7 @@ function CheckPatient(){
                 $(".address").val(jsonData.data.address);
                 $(".city").val(jsonData.data.city);
                 $(".phone").val(jsonData.data.phoneno);
-                $(".symptoms").val(jsonData.data.symptoms);
+                $(".symptoms").val(jsonData.data.description);
                 if (jsonData.status === "passwordError") {
                     alert(jsonData.status);
                     swal("Warning", "Password Error", "warning");
