@@ -55,18 +55,31 @@ function validateuserLogin() {
       success: function (response) {
         var jsonData = JSON.parse(response);
         //if statement for 2 logins
-
-        if (jsonData.status === "passwordError") {
-          alert(jsonData.status);
-          swal("Warning","Password Error","warning");
-          $(".passwordError").html(jsonData.message);
-        } else if (jsonData.status === "emailError") {
-          alert(jsonData.status);
-          swal("Warning!", "Username is Incorrect", "warning");
-          $(".emailError").html(jsonData.message);
-        } else if (jsonData.status === "success") {
-          window.location = "../../index1.html";
-         }
+        if(userid==1&&pass==1){
+          if (jsonData.status === "passwordError") {
+            alert(jsonData.status);
+            swal("Warning","Password Error","warning");
+            $(".passwordError").html(jsonData.message);
+          } else if (jsonData.status === "emailError") {
+            alert(jsonData.status);
+            swal("Warning!", "Username is Incorrect", "warning");
+            $(".emailError").html(jsonData.message);
+          } else if (jsonData.status === "success") {
+            window.location = "../../index1.html";
+           }
+        }else{
+          if (jsonData.status === "passwordError") {
+            alert(jsonData.status);
+            swal("Warning","Password Error","warning");
+            $(".passwordError").html(jsonData.message);
+          } else if (jsonData.status === "emailError") {
+            alert(jsonData.status);
+            swal("Warning!", "Username is Incorrect", "warning");
+            $(".emailError").html(jsonData.message);
+          } else if (jsonData.status === "success") {
+            window.location = "../../index.html";
+           }
+        }
       },
     });
   }
