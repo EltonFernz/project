@@ -1,11 +1,17 @@
+var Pc = 1;
+var res;
 $(document).ready(function () {
+
     
-    var res;
     $("#single").hide();
     $("#family").hide();
     $("#common").hide();
     $("#Add").on("click", function () {
-        $("#textboxDiv").append("<div><h3>New Patient</h3><br><label>Firstname:</label><input class='form-control firstN' type='text'/><br><label>Lastname:</label><input class='form-control lastN' type='text'/><br><label>Gender :</label><br><div class='form-group'><div class=''><form><select class='form-control gendr' id='Gender' name='gender[]'><option value='Male'id='optionsRadios1'>Male</option><option value='Female'id='optionsRadios2'>Female</option><option value='Other'id='optionsRadios3'>Other</option></select></form></div></div><br><label>Birthday:</label><input class='form-control brthdy' type='date' id='birthday' name='birthday'></div><br><div><label>Symptoms :</label><textarea class='form-control Sympt' value='symptoms' required></textarea></div><br>");
+        Pc=Pc+1;
+        var pa_id="P"+Pc;
+       
+        $("#textboxDiv").append("<div><h3>New Patient</h3><br><label>Patient ID:</label><input class='form-control Pid"+Pc+"' type='text'/><br><label>Firstname:</label><input class='form-control firstN' type='text'/><br><label>Lastname:</label><input class='form-control lastN' type='text'/><br><label>Gender :</label><br><div class='form-group'><div class=''><form><select class='form-control gendr' id='Gender' name='gender[]'><option value='Male'id='optionsRadios1'>Male</option><option value='Female'id='optionsRadios2'>Female</option><option value='Other'id='optionsRadios3'>Other</option></select></form></div></div><br><label>Birthday:</label><input class='form-control brthdy' type='date' id='birthday' name='birthday'></div><br><div><label>Symptoms :</label><textarea class='form-control Sympt' value='symptoms' required></textarea></div><br>");
+        $(".Pid"+Pc).val(pa_id);
     });
     $("#Remove").on("click", function () {
         $("#textboxDiv").children().remove();
@@ -73,39 +79,74 @@ function SinglePatient() {
 }
 
 function load() {
-    $.ajax({
-      type: "POST",
-      url: "../../assets/php/patientid.php",
-      success: function (result) {
-        var jsonData = JSON.parse(result);
-        if (jsonData.status === "success") {
-          if(res == "Single Patient")
-          {
-            var key="P";
-            var pat_id=jsonData.data.pid;
-            var p_id=key.concat(pat_id);
-            $(".pid").val(p_id);
-          }else{
-            $(".fid").val(jsonData.data.fid);
-          }
-          
-       }else {
-          swal("Error!", "" +jsonData.message, "error");
-        }
-      
-      },
-      error:function(response){
-        alert(response);
-      }
-    });
+    if(res=="Single Patient"){
+        $.ajax({
+            type: "POST",
+            url: "../../assets/php/patientid.php",
+            success: function (result) {
+              var jsonData = JSON.parse(result);
+              if (jsonData.status === "success") {
+               
+                  var key="P";
+                  var pat_id=jsonData.data.pid;
+                  var p_id=key.concat(pat_id);
+                  $(".pid").val(p_id);
+             }else {
+                swal("Error!", "" +jsonData.message, "error");
+              }
+            },
+            error:function(response){
+              alert(response);
+            }
+          });
+    }else{
+        $(".Pid").val("P1");
+        $.ajax({
+            type: "POST",
+            url: "../../assets/php/famid.php",
+            
+            success: function (result) {
+              var jsonData = JSON.parse(result);
+              if (jsonData.status === "success") {
+                var key="F";
+                var fam_id=jsonData.data.fid;
+                var f_id=key.concat(fam_id);
+                $(".fid").val(f_id);
+
+             }else {
+                swal("Error!", "" +jsonData.message, "error");
+              }
+            
+            },
+            error:function(response){
+              alert(response);
+            }
+          });
+        
+    }
+    
   }
 
 function Family() {
+    var arrpid=[];
     var arr = [];
     var arr1 = [];
     var arr2 = [];
     var arr3 = [];
     var arr4 = [];
+    for(var i=1;i<=Pc;i++){
+        if(i==1){
+            $(".Pid").each(function () {
+                arrpid.push($(this).val());
+            });
+        }else{
+            $(".Pid"+i).each(function () {
+                arrpid.push($(this).val());
+            });
+        }
+       
+       
+    }
     $(".firstN").each(function () {
         arr.push($(this).val());
     });
@@ -134,6 +175,7 @@ function Family() {
             type: "POST",
             url: "../../assets/php/registerpatient.php",
             data: {
+                arrpid:arrpid,
                 check:check,
                 fid: fid,
                 arr : arr,

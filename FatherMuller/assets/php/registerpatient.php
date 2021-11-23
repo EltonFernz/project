@@ -32,10 +32,11 @@ if ($check == '1') {
   $adrs = $_POST['adrs'];
   $city = $_POST['cty'];
   $phone = $_POST['phne'];
-  $fid="F".$famid;
+  $fam_pid=$_POST['arrpid'];
+  $fid=$famid;
   $appointment = $_POST['appDT'];
   for($i=0;$i<count($arr);$i++){
-  $sql2 = "INSERT INTO `patientfam_details`(`fam_cid`, `f_id`, `fam_fname`, `fam_lname`, `fam_gender`, `fam_dob`, `fam_symptoms`, `fam_address`, `fam_city`, `fam_phoneno`, `fam_appointmentDT`) VALUES ('$famid','$fid','$arr[$i]','$arr1[$i]','$arr2[$i]','$arr3[$i]','$arr4[$i]','$adrs','$city','$phone','$appointment')";
+  $sql2 = "INSERT INTO `patientfam_details`(`f_id`,`fam_pid`, `fam_fname`, `fam_lname`, `fam_gender`, `fam_dob`, `fam_symptoms`, `fam_address`, `fam_city`, `fam_phoneno`, `fam_appointmentDT`) VALUES ('$fid','$fam_pid[$i]','$arr[$i]','$arr1[$i]','$arr2[$i]','$arr3[$i]','$arr4[$i]','$adrs','$city','$phone','$appointment')";
   $result2 = mysqli_query($connection, $sql2);
   if ($result2) {
     $res = array('status' => 'success', 'message' => 'Patient added Successfully!');
