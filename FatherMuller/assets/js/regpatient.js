@@ -86,10 +86,6 @@ function load() {
             var p_id=key.concat(pat_id);
             $(".pid").val(p_id);
           }else{
-            var key="F";
-            var pat_id=jsonData.data.pid;
-            var p_id=key.concat(pat_id);
-            $(".fid").val(jsonData.data.pid);
             $(".fid").val(jsonData.data.fid);
           }
           
