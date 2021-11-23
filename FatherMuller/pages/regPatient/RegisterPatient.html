@@ -229,7 +229,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../pages/charts/chartjs1.html">
+            <a class="nav-link" href="../../pages/TCList/TCList.html">
               <span class="menu-title">Today's Checkup</span>
               <i class="mdi mdi-chart-bar menu-icon"></i>
             </a>
@@ -382,10 +382,13 @@
            <input id="phne"class="form-control" type="text" name="phone" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" placeholder="" size="10" maxlength="10" required>
             <br>
             <label>Appointment Date & Time</label>
-            <input type="datetime-local" class="form-control" id="meeting-time"
-              name="meeting-time" value=""
+            <input type="date" class="form-control" id="date"
+              name="date" value=""
                max="">
             <br> 
+            <label>Choose a time for the Appointment:</label>
+            <input type="time" id="appt" class="form-control" name="appt" min="09:00" max="18:00" required>
+            <br>
             <center>
             <input id="submit"class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
           </center>
