@@ -81,8 +81,14 @@ function load() {
         if (jsonData.status === "success") {
           if(res == "Single Patient")
           {
-            $(".pid").val(jsonData.data.pid);
+            var key="P";
+            var pat_id=jsonData.data.pid;
+            var p_id=key.concat(pat_id);
+            $(".pid").val(p_id);
           }else{
+            var key="F";
+            var pat_id=jsonData.data.pid;
+            var p_id=key.concat(pat_id);
             $(".fid").val(jsonData.data.pid);
           }
           
@@ -103,25 +109,27 @@ function Family() {
     var arr2 = [];
     var arr3 = [];
     var arr4 = [];
-    $("input.firstN").each(function () {
+    $(".firstN").each(function () {
         arr.push($(this).val());
     });
-    $("input.lastN").each(function () {
+    $(".lastN").each(function () {
         arr1.push($(this).val());
     });
     $(".gendr option:selected").each(function () {
         arr2.push($(this).val());
     });
-    $("input.brthdy").each(function () {
+    $(".brthdy").each(function () {
         arr3.push($(this).val());
     });
-    $("textarea.Sympt").each(function () {
+    $(".Sympt").each(function () {
         arr4.push($(this).val());
     });
     var adrs = $("#adrs").val();
     var cty = $("#cty").val();
     var phne = $("#phne").val();
     var appDT = $("#meeting-time").val();
+    var fid= $(".fid").val();
+    var check=2;
     if ( arr == "" || arr1 == "" || arr2 == "" ||arr3 == "" || arr4 == "" || adrs == "" || cty == "" || phne == "" || appDT == "") {
         swal("Warning!", "Please fill all the fields!", "warning");
     } else {
@@ -129,6 +137,7 @@ function Family() {
             type: "POST",
             url: "../../assets/php/registerpatient.php",
             data: {
+                check:check,
                 fid: fid,
                 arr : arr,
                 arr1 : arr1,
@@ -138,7 +147,7 @@ function Family() {
                 adrs: adrs,
                 cty: cty,
                 phne: phne,
-                appDT: appDT,
+                appDT: appDT
 
             },
             success: function (response) {

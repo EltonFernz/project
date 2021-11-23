@@ -9,8 +9,10 @@ if ($counter == 0 ) {
 	$res = array('status' => 'error', 'message' => 'No Patients Found');
 }else{
 	$row = mysqli_fetch_assoc($result1);
+	$key='P';
 	$pid=$row['MAXIMUM'];
     $pid=$pid+1;
+	//$pat_id ="P".$pid;
 
     $jdata = array('pid'=>$pid);
 	$res = array('status' => 'success', 'message' => 'Success', 'data' => $jdata);
