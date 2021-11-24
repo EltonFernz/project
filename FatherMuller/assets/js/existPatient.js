@@ -18,7 +18,7 @@ function CheckPatient(){
     }else{
         $.ajax({
             type: "POST",
-            url: "../../assets/php/checkFpatient.php",
+            url: "../../assets/php/checkpatient.php",
             data: {
                 checkId : checkId,
 
@@ -53,13 +53,14 @@ function CheckPatient(){
 var checkId = $(".checkId").val();
     $.ajax({
         type: "POST",
-        url: "../../assets/php/checkpatient.php",
+        url: "../../assets/php/checkFpatient.php",
         data: {
             checkId : checkId,
 
         },
         success: function (response) {
             var jsonData = JSON.parse(response);
+            //PID
             $(".firstName").val(jsonData.data.fname+jsonData.data.lname);
             $(".gender").val(jsonData.data.gender);
             $(".birthday").val(jsonData.data.dob);
