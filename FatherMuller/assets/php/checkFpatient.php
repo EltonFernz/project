@@ -10,6 +10,7 @@ if ($counter == 0 ) {
 }else{
     $getdata = array();
 	while($row = mysqli_fetch_assoc($result3)){
+        $pid=$row['fam_pid'];
 	$fname = $row['fam_fname'];
 	$lname=$row['fam_lname'];
     $gender = $row['fam_gender'];
@@ -19,7 +20,7 @@ if ($counter == 0 ) {
     $phoneno=$row['fam_phoneno'];
     $description=$row['fam_symptoms'];
     $appointment=$row['fam_appointmentDT'];
-    $jdata = array("cid"=>$checkId,"fname"=>$fname,"lname"=>$lname,"gender"=>$gender,"dob"=>$dob,"address"=>$address,"city"=>$city,"phoneno"=>$phoneno,"description"=>$description,"appointment"=>$appointment);
+    $jdata = array("pid"=>$pid,"cid"=>$checkId,"fname"=>$fname,"lname"=>$lname,"gender"=>$gender,"dob"=>$dob,"address"=>$address,"city"=>$city,"phoneno"=>$phoneno,"description"=>$description,"appointment"=>$appointment);
     array_push($getdata, $jdata);    
     }
     $res = array('status' => 'success', 'message' => 'Success', 'data' => $getdata);

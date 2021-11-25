@@ -25,6 +25,7 @@ function CheckPatient(){
             },
             success: function (response) {
                 var jsonData = JSON.parse(response);
+                $(".firstName").val();
                 $(".firstName").val(jsonData.data.fname+jsonData.data.lname);
                 $(".gender").val(jsonData.data.gender);
                 $(".birthday").val(jsonData.data.dob);
@@ -34,14 +35,14 @@ function CheckPatient(){
                 $(".symptoms").val(jsonData.data.description);
                 if (jsonData.status === "passwordError") {
                     alert(jsonData.status);
-                    swal("Warning", "Password Error", "warning");
+                    //swal("Warning", "Password Error", "warning");
                     $(".passwordError").html(jsonData.message);
                 } else if (jsonData.status === "emailError") {
                     alert(jsonData.status);
-                    swal("Warning!", "Username is Incorrect", "warning");
+                    //swal("Warning!", "Username is Incorrect", "warning");
                     $(".emailError").html(jsonData.message);
                 } else if (jsonData.status === "success") {
-                    swal("Success", "Added Successfully", "Success");
+                    //swal("Success", "Added Successfully", "Success");
                     window.location = "../../index1.html";
                 }
             },
@@ -60,6 +61,18 @@ var checkId = $(".checkId").val();
         },
         success: function (response) {
             var jsonData = JSON.parse(response);
+            for ($i = 0; $i < jsonData.data.length; $i++) {
+                $(".pid_data").append(
+                    "<option value='" +jsonData.data[$i].pid +"'>"+jsonData.data[$i].pid+"</option>"
+                  );
+                  
+            }
+            
+            if(jsonData.data[$i].pid==selected){
+                $(".firstName").val(jsonData.data[$i].fname+jsonData.data[$i].lname);
+              }
+            
+
             //PID
             $(".firstName").val(jsonData.data.fname+jsonData.data.lname);
             $(".gender").val(jsonData.data.gender);
