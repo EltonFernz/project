@@ -2,7 +2,7 @@
 $connection=new mysqli("localhost","root","","ehr" );   
 session_start();
 
-$sql1 = "SELECT f_id from patientfam_details ORDER by fam_cid desc LIMIT 1";
+$sql1 = "SELECT f_id from patientfam_details ORDER by f_id desc LIMIT 1";
 $result1 = mysqli_query($connection, $sql1);
 $counter = mysqli_num_rows($result1);
 if ($counter == 0 ) {

@@ -1,16 +1,16 @@
 var pid = 0;
 $(document).ready(function () {
   loadPatients();
+ 
 });
 
-function loadCustomers(status,day) {
+function loadPatients() {
+  
+  
   $.ajax({
     type: "POST",
-    url: "source/.php",
-    data:{
-      status:status,
-      day:day
-    },
+    url: "../../assets/php/chart1.php",
+    
     success: function (response) {
       var jsonData = JSON.parse(response);
       if (jsonData.status === "error") {
@@ -21,36 +21,25 @@ function loadCustomers(status,day) {
          
         });
       } else {
-        $(".pat_table").DataTable().clear().draw();
-        $(".pat_table").DataTable().destroy();
+        //$(".pat_table").DataTable().clear().draw();
+        //$(".pat_table").DataTable().destroy();
+        
         for ($i = 0; $i < jsonData.data.length; $i++) {
-          $(".pat_data").append(
-            "<tr><td>" +
-              jsonData.data[$i].cid +
-              "</td><td >" +
-              jsonData.data[$i].biomaxid +
-              "</td><td >" +
-              jsonData.data[$i].name +
-              "</td><td>" +
-              jsonData.data[$i].planstart +
-              "</td><td>" +
-              jsonData.data[$i].planexpiry +
-              "</td><td >" +
-              jsonData.data[$i].phoneno +
-              "</td><td >" +
-              jsonData.data[$i].feetype +
-              "</td><td>" +
-              service +
-              "</td><td>" +
-              jsonData.data[$i].status +
-              "</td><td>" +
-              jsonData.data[$i].vaccinated +
-              "</td><td><button type='button' id='sendMessage' class='btn btn-primary '>Send</button></td></tr>"
+          $("tbody").append(
+              "<tr><td>" +jsonData.data[$i].pid +
+              "</td><td>" +jsonData.data[$i].fname +
+              "</td><td >" + jsonData.data[$i].lname +
+              "</td><td >" +jsonData.data[$i].gender +
+              "</td><td>" +jsonData.data[$i].dob +
+              "</td><td>" +jsonData.data[$i].address +
+              "</td><td >" +jsonData.data[$i].city +
+              "</td><td >" +jsonData.data[$i].phoneno +
+              "</td><td>" +jsonData.data[$i].description +
+              "</td><td>" +jsonData.data[$i].appointment +
+              "</td></tr>"
           );
         }
-        $(".cus_table").DataTable({
-          scrollY: 350
-        });
+        $(".pat_table").DataTable();
       }
     },
   });
