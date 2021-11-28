@@ -9,6 +9,7 @@ $(document).ready(function(){
         }
        
     });
+     
 })
 //entering the id to retrive the patient details
 function CheckPatient(){
@@ -61,20 +62,28 @@ var checkId = $(".checkId").val();
         },
         success: function (response) {
             var jsonData = JSON.parse(response);
-            for ($i = 0; $i < jsonData.data.length; $i++) {
+            for (let i = 0; i < jsonData.data.length; i++) {
                 $(".pid_data").append(
-                    "<option value='" +jsonData.data[$i].pid +"'>"+jsonData.data[$i].pid+"</option>"
+                    "<option value='" +jsonData.data[i].pid +"'>"+jsonData.data[i].pid+"</option>"
                   );
                   
+                //   if(jsonData.data[i].pid=="option:selected"){
+                //     $(".firstName").val(jsonData.data[i].fname+jsonData.data[i].lname);
+                //   }
+                
+                  
             }
+            $(".pid_data").change (function () {  
+                var Pselect = $(this).children("option: selected").val();   
+            }); 
+             // clear fiellds all of them 
+            $(".firstName").val(jsonData.data[0].fname+jsonData.data[0].lname); 
+           
             
-            if(jsonData.data[$i].pid==selected){
-                $(".firstName").val(jsonData.data[$i].fname+jsonData.data[$i].lname);
-              }
-            
+           
 
             //PID
-            $(".firstName").val(jsonData.data.fname+jsonData.data.lname);
+            // $(".firstName").val(jsonData.data.fname+jsonData.data.lname);
             $(".gender").val(jsonData.data.gender);
             $(".birthday").val(jsonData.data.dob);
             $(".address").val(jsonData.data.address);
