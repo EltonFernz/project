@@ -22,6 +22,7 @@ $(document).ready(function () {
     });
     $("#submit").click(function () {
         SinglePatient();
+        
     });
     $("#submit2").click(function () {
         Family();
@@ -255,6 +256,7 @@ function displayRadioValue() {
         $("#common").show();
         $("#submit").show();
         $("#submit2").hide();
+        $("#F_pid").hide();
     } else {
         $("#single").show();
         $("#sngl").hide();
