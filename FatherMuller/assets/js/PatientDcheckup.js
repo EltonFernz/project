@@ -1,14 +1,14 @@
 $(document).ready(function(){
     $("#Sdetails").hide();
     $(".subcheck").click(function () {
-                $(".pid_data").html("");
+                // $(".pid_data").html("");
                 $(".firstName").val(""); 
                 $(".gender").val("");
                 $(".birthday").val("");
-                $(".address").val("");
-                $(".city").val("");
-                $(".phone").val("");
-                $(".symptoms").val("");
+                // $(".address").val("");
+                // $(".city").val("");
+                // $(".phone").val("");
+                // $(".symptoms").val("");
         var checkId = $(".checkId").val();
         var a = checkId.substr(0,1);
         if(a=="P"||a=="p"){
@@ -24,7 +24,7 @@ $(document).ready(function(){
        
     });
      
-})
+});
 //entering the id to retrive the patient details
 function CheckPatient(){
     var checkId = $(".checkId").val();
@@ -33,7 +33,7 @@ function CheckPatient(){
     }else{
         $.ajax({
             type: "POST",
-            url: "../../assets/php/checkpatient.php",
+            url: "../../assets/php/PatientDcheckup.php",
             data: {
                 checkId : checkId,
 
@@ -43,10 +43,10 @@ function CheckPatient(){
                 $(".firstName").val(jsonData.data.fname+jsonData.data.lname);
                 $(".gender").val(jsonData.data.gender);
                 $(".birthday").val(jsonData.data.dob);
-                $(".address").val(jsonData.data.address);
-                $(".city").val(jsonData.data.city);
-                $(".phone").val(jsonData.data.phoneno);
-                $(".symptoms").val(jsonData.data.description);
+                // $(".address").val(jsonData.data.address);
+                // $(".city").val(jsonData.data.city);
+                // $(".phone").val(jsonData.data.phoneno);
+                // $(".symptoms").val(jsonData.data.description);
                 if (jsonData.status === "passwordError") {
                     alert(jsonData.status);
                     //swal("Warning", "Password Error", "warning");
@@ -68,7 +68,7 @@ function CheckPatient(){
 var checkId = $(".checkId").val();
     $.ajax({
         type: "POST",
-        url: "../../assets/php/checkFpatient.php",
+        url: "../../assets/php/FamilyDcheckup.php",
         data: {
             checkId : checkId,
 
@@ -91,26 +91,26 @@ var checkId = $(".checkId").val();
             $(".firstName").val(jsonData.data[0].fname+jsonData.data[0].lname); 
             $(".gender").val(jsonData.data[0].gender);
             $(".birthday").val(jsonData.data[0].dob);
-            $(".address").val(jsonData.data[0].address);
-            $(".city").val(jsonData.data[0].city);
-            $(".phone").val(jsonData.data[0].phoneno);
-            $(".symptoms").val(jsonData.data[0].description);
+            // $(".address").val(jsonData.data[0].address);
+            // $(".city").val(jsonData.data[0].city);
+            // $(".phone").val(jsonData.data[0].phoneno);
+            // $(".symptoms").val(jsonData.data[0].description);
             
             $(".pid_data").change (function () {  
                 $(".firstName").val(""); 
                 $(".gender").val("");
                 $(".birthday").val("");
-                $(".address").val("");
-                $(".city").val("");
-                $(".phone").val("");
-                $(".symptoms").val("");
+                // $(".address").val("");
+                // $(".city").val("");
+                // $(".phone").val("");
+                // $(".symptoms").val("");
                
                 var Cval = $(this).val();
                 var a = Cval.substr(2);
                 var b = Cval.substr(0,2)
                 $.ajax({
                     type: "POST",
-                    url: "../../assets/php/checkpid.php",
+                    url: "../../assets/php/CheckDpid.php",
                     data: {
                         a : a,
                         b:b,
@@ -121,10 +121,10 @@ var checkId = $(".checkId").val();
                         $(".firstName").val(jsonData.data[0].fname+jsonData.data[0].lname); 
             $(".gender").val(jsonData.data[0].gender);
             $(".birthday").val(jsonData.data[0].dob);
-            $(".address").val(jsonData.data[0].address);
-            $(".city").val(jsonData.data[0].city);
-            $(".phone").val(jsonData.data[0].phoneno);
-            $(".symptoms").val(jsonData.data[0].description);
+            // $(".address").val(jsonData.data[0].address);
+            // $(".city").val(jsonData.data[0].city);
+            // $(".phone").val(jsonData.data[0].phoneno);
+            // $(".symptoms").val(jsonData.data[0].description);
                     },
                 });
             });   

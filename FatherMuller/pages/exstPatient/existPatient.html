@@ -284,12 +284,15 @@
             </center>
               <br>
               <div id="Sdetails">
-                <label>
-                  Patient ID:
-                </label>
-              <select name="pid" class="form-control pid_data">
+                <div id="hpid">
+                  <label>
+                    Patient ID:
+                  </label>
+                <select name="pid" class="form-control pid_data">
+                  
+                </select>
+                </div>
                 
-              </select>
               <br>
               <label>
                 Name:
@@ -360,11 +363,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-      $(document).ready(function() {
-    $('#example').DataTable();
-} );
-    </script>
+    
     <!-- End custom js for this page -->
   </body>
 </html>

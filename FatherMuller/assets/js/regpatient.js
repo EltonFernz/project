@@ -10,7 +10,7 @@ $(document).ready(function () {
         Pc=Pc+1;
         var pa_id="P"+Pc;
        
-        $("#textboxDiv").append("<div><h3>New Patient</h3><br><label>Patient ID:</label><input class='form-control Pid"+Pc+"' type='text'/><br><label>Firstname:</label><input class='form-control firstN' type='text'/><br><label>Lastname:</label><input class='form-control lastN' type='text'/><br><label>Gender :</label><br><div class='form-group'><div class=''><form><select class='form-control gendr' id='Gender' name='gender[]'><option value='Male'id='optionsRadios1'>Male</option><option value='Female'id='optionsRadios2'>Female</option><option value='Other'id='optionsRadios3'>Other</option></select></form></div></div><br><label>Birthday:</label><input class='form-control brthdy' type='date' id='birthday' name='birthday'></div><br><div><label>Symptoms :</label><textarea class='form-control Sympt' value='symptoms' required></textarea></div><br>");
+        $("#textboxDiv").append("<div><h3>New Patient</h3><br><label>Patient ID:</label><input class='form-control Pid"+Pc+"' type='text'/><br><label>Firstname:</label><input class='form-control firstN' type='text'/><br><label>Lastname:</label><input class='form-control lastN' type='text'/><br><label>Gender :</label><br><div class='form-group'><div class=''><form><select class='form-control gendr' id='Gender' name='gender[]'><option value='Male'id='optionsRadios1'>Male</option><option value='Female'id='optionsRadios2'>Female</option><option value='Other'id='optionsRadios3'>Other</option></select></form></div></div><br><label>Birthday:</label><input class='form-control brthdy' type='date' id='birthday' name='birthday'></div><br>");
         $(".Pid"+Pc).val(pa_id);
     });
     $("#Remove").on("click", function () {
