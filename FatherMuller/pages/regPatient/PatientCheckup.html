@@ -19,7 +19,25 @@
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
+  <style>
+  #result{
+    height: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px 0 #bbb;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .mic{
+    font-size: 20px;
+    top: 240px;
+    left: 50%;
+  }
+  </style>
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
@@ -280,7 +298,7 @@
               </label>
               <input class="form-control checkId" type="text" name="firstname" /> <br>
               <center>
-              <input class="btn btn-gradient-primary mr-2 subcheck" type="submit" value="submit" />
+              <input class="btn btn-gradient-primary mr-2 subcheck" type="button" value="submit" />
             </center>
               <br>
               <div id="Sdetails">
@@ -321,10 +339,12 @@
                 Phone :
               </label>
              <input class="form-control phone" type="text" name="phone" placeholder="phone no." size="10"  required>
-              <br> <br>
+              <br> <br>-->
               Symptoms :
-              <textarea class="form-control symptoms" value="symptoms" required>
-  </textarea> -->
+              <!-- <textarea class="form-control symptoms" value="symptoms" required>
+  </textarea>  -->
+  <div id="result"></div>
+	<button onclick="startConverting();" type="button"><i class="fa fa-microphone btn btn-danger mic" aria-hidden="true"></i></button>
               <br>
               <center>
               <input class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
@@ -365,4 +385,39 @@
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <!-- End custom js for this page -->
   </body>
+  <script>
+    var result = document.getElementById('result');
+  
+  function startConverting () {
+
+  if('webkitSpeechRecognition' in window) {
+    var speechRecognizer = new webkitSpeechRecognition();
+    speechRecognizer.continuous = true;
+    speechRecognizer.interimResults = true;
+    speechRecognizer.lang = 'kn';
+    speechRecognizer.start();
+
+    var finalTranscripts = '';
+
+    speechRecognizer.onresult = function(event) {
+      var interimTranscripts = '';
+      for(var i = event.resultIndex; i < event.results.length; i++){
+        var transcript = event.results[i][0].transcript;
+        transcript.replace("\n", "<br>");
+        if(event.results[i].isFinal) {
+          finalTranscripts += transcript;
+        }else{
+          interimTranscripts += transcript;
+        }
+      }
+      result.innerHTML = finalTranscripts + '<span style="color: #999">' + interimTranscripts + '</span>';
+    };
+    speechRecognizer.onerror = function (event) {
+
+    };
+  }else {
+    result.innerHTML = 'Your browser is not supported. Please download Google chrome or Update your Google chrome!!';
+  }	
+  }
+  </script>
 </html>
