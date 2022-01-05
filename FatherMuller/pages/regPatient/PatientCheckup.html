@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  </head>
-  <style>
-  #result{
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Purple Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+  #result {
     height: 200px;
     border: 1px solid #ccc;
     padding: 10px;
@@ -32,39 +33,42 @@
     font-size: 14px;
     line-height: 25px;
   }
-  .mic{
+
+  .mic {
     font-size: 20px;
     top: 240px;
     left: 50%;
   }
-  </style>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:../../partials/_navbar.html -->
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
-        
-        <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-          </button>
-          <div style="margin-left: 42%;font-weight: bold;color: black;">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div>
-                Electronic Health Records
-              </div>
-               <!-- <div class="input-group">
+</style>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../assets/images/logo-mini.svg"
+            alt="logo" /></a>
+      </div>
+
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-menu"></span>
+        </button>
+        <div style="margin-left: 42%;font-weight: bold;color: black;">
+          <form class="d-flex align-items-center h-100" action="#">
+            <div>
+              Electronic Health Records
+            </div>
+            <!-- <div class="input-group">
                 <div class="input-group-prepend bg-transparent">
                   <i class="input-group-text border-0 mdi mdi-magnify"></i>
                 </div>
                 <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
               </div>  -->
-            </form>
-          </div>
-         <!-- <ul class="navbar-nav navbar-nav-right">
+          </form>
+        </div>
+        <!-- <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
@@ -190,34 +194,34 @@
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>-->
-        </div> 
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:../../partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
-                <div class="nav-profile-image">
-                  <img src="../../assets/images/faces/face1.jpg" alt="profile">
-                  <span class="login-status online"></span>
-                  <!--change to offline or busy as needed-->
-                </div>
-                <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">Staff</span>
-                  <span class="text-secondary text-small">Office Staff</span>
-                </div>
-                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../index1.html">
-                <span class="menu-title">Dashboard</span>
-                <i class="mdi mdi-home menu-icon"></i>
-              </a>
-            </li>
-            <!-- <li class="nav-item">
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="../../assets/images/faces/face1.jpg" alt="profile">
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2">Staff</span>
+                <span class="text-secondary text-small">Office Staff</span>
+              </div>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../index1.html">
+              <span class="menu-title">Dashboard</span>
+              <i class="mdi mdi-home menu-icon"></i>
+            </a>
+          </li>
+          <!-- <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Basic UI Elements</span>
                 <i class="menu-arrow"></i>
@@ -230,31 +234,31 @@
                 </ul>
               </div>
             </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/regPatient/PatientCheckup.html">
-                <span class="menu-title">Patient Checkup</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/exstPatient/.html">
-                <span class="menu-title">Todays Checkup List</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/TCList/.html">
-                <span class="menu-title">All Records</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="">
-                <span class="menu-title">Logout</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-           </li>
-             <!--<li class="nav-item">
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/regPatient/PatientCheckup.html">
+              <span class="menu-title">Patient Checkup</span>
+              <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/exstPatient/.html">
+              <span class="menu-title">Todays Checkup List</span>
+              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/TCList/.html">
+              <span class="menu-title">All Records</span>
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <span class="menu-title">Logout</span>
+              <i class="mdi mdi-table-large menu-icon"></i>
+            </a>
+          </li>
+          <!--<li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                 <span class="menu-title">Sample Pages</span>
                 <i class="menu-arrow"></i>
@@ -287,30 +291,30 @@
                 </div>
               </span>
             </li> -->
-          </ul>
-        </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <form>
-              <label>
-                Enter The ID :
-              </label>
-              <input class="form-control checkId" type="text" name="firstname" /> <br>
-              <center>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <form>
+            <label>
+              Enter The ID :
+            </label>
+            <input class="form-control checkId" type="text" name="firstname" /> <br>
+            <center>
               <input class="btn btn-gradient-primary mr-2 subcheck" type="button" value="submit" />
             </center>
-              <br>
-              <div id="Sdetails">
-                <div id="hpid">
-                  <label>
-                    Patient ID:
-                  </label>
+            <br>
+            <div id="Sdetails">
+              <div id="hpid">
+                <label>
+                  Patient ID:
+                </label>
                 <select name="pid" class="form-control pid_data">
-                  
+
                 </select>
-                </div>
-                
+              </div>
+
               <br>
               <label>
                 Name:
@@ -324,7 +328,7 @@
               <br>
               <label for="birthday">Birthday:</label>
               <input class="form-control birthday" type="text" id="birthday" name="birthday">
-              
+
               <!-- Address :
               <textarea class="form-control address" value="address" required>
   </textarea>
@@ -343,81 +347,94 @@
               Symptoms :
               <!-- <textarea class="form-control symptoms" value="symptoms" required>
   </textarea>  -->
-  <div id="result" class="form-control"></div>
-	<button onclick="startConverting();" type="button"><i class="fa fa-microphone btn btn-danger mic" aria-hidden="true"></i></button>
+              <div id="result" class="form-control"></div>
+              <button onclick="startConverting();" type="button"><i class="fa fa-microphone btn btn-danger mic"
+                  aria-hidden="true"></i></button>
               <br>
               <center>
-              <input class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
-            </center>
-          </div>
-            </form>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          <footer class="footer">
-            <div class="container-fluid clearfix">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates </a> from Bootstrapdash.com</span>
+                 <input class="btn btn-gradient-primary mr-2" type="submit" value="Translate" />
+                 <input class="btn btn-gradient-primary mr-2" type="submit" value="submit" />
+              </center>
+              <p id="some">Hello</p>
+<input id="trans" value="Translate" type="button">
             </div>
-          </footer>
-          <!-- partial -->
+          </form>
         </div>
-        <!-- main-panel ends -->
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+          <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com
+              2020</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+                href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates
+              </a> from Bootstrapdash.com</span>
+          </div>
+        </footer>
+        <!-- partial -->
       </div>
-      <!-- page-body-wrapper ends -->
+      <!-- main-panel ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../../assets/js/off-canvas.js"></script>
-    <script src="../../assets/js/hoverable-collapse.js"></script>
-    <script src="../../assets/js/misc.js"></script>
-    <script src="../../assets/js/PatientDcheckup.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="../../assets/js/file-upload.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    <!-- End custom js for this page -->
-  </body>
-  <script>
-    var result = document.getElementById('result');
-  
-  function startConverting () {
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../../assets/js/off-canvas.js"></script>
+  <script src="../../assets/js/hoverable-collapse.js"></script>
+  <script src="../../assets/js/misc.js"></script>
+  <script src="../../assets/js/PatientDcheckup.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="../../assets/js/file-upload.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script src="/assets/gmap3.js?body=1" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/google-translate-api-extended@2.3.1/index.min.js"></script>
+  <!-- End custom js for this page -->
+</body>
+<script>
+  var result = document.getElementById('result');
 
-  if('webkitSpeechRecognition' in window) {
-    var speechRecognizer = new webkitSpeechRecognition();
-    speechRecognizer.continuous = true;
-    speechRecognizer.interimResults = true;
-    speechRecognizer.lang = 'kn';
-    speechRecognizer.start();
+  function startConverting() {
 
-    var finalTranscripts = '';
+    if ('webkitSpeechRecognition' in window) {
+      var speechRecognizer = new webkitSpeechRecognition();
+      speechRecognizer.continuous = true;
+      speechRecognizer.interimResults = true;
+      speechRecognizer.lang = 'kn';
+      speechRecognizer.start();
 
-    speechRecognizer.onresult = function(event) {
-      var interimTranscripts = '';
-      for(var i = event.resultIndex; i < event.results.length; i++){
-        var transcript = event.results[i][0].transcript;
-        transcript.replace("\n", "<br>");
-        if(event.results[i].isFinal) {
-          finalTranscripts += transcript;
-        }else{
-          interimTranscripts += transcript;
+      var finalTranscripts = '';
+
+      speechRecognizer.onresult = function (event) {
+        var interimTranscripts = '';
+        for (var i = event.resultIndex; i < event.results.length; i++) {
+          var transcript = event.results[i][0].transcript;
+          transcript.replace("\n", "<br>");
+          if (event.results[i].isFinal) {
+            finalTranscripts += transcript;
+          } else {
+            interimTranscripts += transcript;
+          }
         }
-      }
-      result.innerHTML = finalTranscripts + '<span style="color: #999">' + interimTranscripts + '</span>';
-    };
-    speechRecognizer.onerror = function (event) {
+        result.innerHTML = finalTranscripts + '<span style="color: #999">' + interimTranscripts + '</span>';
+      };
+      speechRecognizer.onerror = function (event) {
 
-    };
-  }else {
-    result.innerHTML = 'Your browser is not supported. Please download Google chrome or Update your Google chrome!!';
-  }	
+      };
+    } else {
+      result.innerHTML = 'Your browser is not supported. Please download Google chrome or Update your Google chrome!!';
+    }
   }
-  </script>
+
+ 
+</script>
+
 </html>
