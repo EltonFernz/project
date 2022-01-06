@@ -1,9 +1,7 @@
 $(document).ready(function(){
-    $('#trans').click(function() {
-        google.language.translate($('#some').html(), 'en', 'fr', function(result) {
-            $('#some').html(result.translation);
-        });
-      });
+
+   
+
     $("#Sdetails").hide();
     $(".subcheck").click(function () {
                 // $(".pid_data").html("");
